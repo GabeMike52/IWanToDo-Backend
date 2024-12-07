@@ -2,10 +2,10 @@ import { Sequelize } from "sequelize";
 import ENV from "./env";
 
 const uri = ENV.PSQL_URI;
+const sequelize = new Sequelize(uri);
 
 async function connectToPostgreSQL(): Promise<void> {
     try {
-        const sequelize = new Sequelize(uri);
         await sequelize.authenticate();
         console.log("Connected to PostgreSQL!");
     } catch (error) {
@@ -13,4 +13,4 @@ async function connectToPostgreSQL(): Promise<void> {
     }
 }
 
-export default connectToPostgreSQL;
+export { connectToPostgreSQL, sequelize };

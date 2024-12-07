@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import connectToPostgreSQL from "./config/db";
+import { connectToPostgreSQL } from "./config/db";
 
 const app = express();
 connectToPostgreSQL().catch(console.error);
